@@ -37,6 +37,7 @@ public class FuelDisplay : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<PlayerController>().StartFlight();
             EraseFuel();
         }
     }

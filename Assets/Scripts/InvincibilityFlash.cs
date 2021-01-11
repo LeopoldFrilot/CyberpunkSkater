@@ -46,4 +46,12 @@ public class InvincibilityFlash : MonoBehaviour
         time = num;
         curTimeForFlash = 0;
     }
+    public bool IsInvincible()
+    {
+        if(time > 0)
+        {
+            return true;
+        }
+        return false;
+    }
 }

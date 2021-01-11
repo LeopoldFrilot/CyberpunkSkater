@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float horizSpeed = 2f;
     public float teleportDistance = 30f;
     public float invincibilityTime = 3f;
+    public float maxFlyTime = 5f;
 
     [Header("Lane logic")]
     public float maxHeight = 450f;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private bool pausePressed = false;
     private Vector3 defaultScale;
     private Animator animator;
+    private float flightTime = 0;
 
     public void Awake()
     {
@@ -63,6 +65,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
+        if(flightTime > 0)
+        {
+            flightTime -= Time.deltaTime;
+            if(flightTime <= 0)
+            {
+                EndFlight();
+            }
+        }
         float curHorizSpeed = horizSpeed * Mathf.Clamp(1 - AC.speed, 0, 1);
         float yStore = 0;
         float xStore = 0;
@@ -151,7 +161,7 @@ public class PlayerController : MonoBehaviour
     }
     public bool TakeDamage(int lane)
     {
-        if(curLane == lane)
+        if(curLane == lane && !GetComponent<InvincibilityFlash>().IsInvincible())
         {
             Debug.Log("TOOK DAMAGE");
             AC.speed = AC.speed * 2f / 3f;
@@ -185,6 +195,18 @@ public class PlayerController : MonoBehaviour
             return true;
         }
         return false;
+    }
+    public void StartFlight()
+    {
+        transform.GetChild(0).GetComponent<Collider2D>().enabled = false;
+        flightTime = maxFlyTime;
+        animator.SetBool("Flying", true);
+    }
+    public void EndFlight()
+    {
+        transform.GetChild(0).GetComponent<Collider2D>().enabled = true;
+        animator.SetBool("Flying", false);
+        GetComponent<InvincibilityFlash>().StartFlash(invincibilityTime);
     }
     public void OnEnable()
     {

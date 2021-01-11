@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 4582545081456358992, guid: 3d0c126ac02920649a66285b16184375, type: 3}
-  timeBetweenSpawns: 8
+  timeBetweenSpawns: 6
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

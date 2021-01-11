@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561f2809cd90ed6409e7e48b3bad5e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMoveSpeed: -15
+  xMoveSpeed: -20
   perspectiveScale: 0.3
   obstacleOffset: 0.1
   scoreChangeForTouch: 100
