@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Lane1
+  - Lane2
+  - Lane3
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Lane1 Background
+    uniqueID: 2775021611
+    locked: 0
+  - name: Lane1 Foreground
+    uniqueID: 3676193127
+    locked: 0
+  - name: Lane2 Background
+    uniqueID: 3150072007
+    locked: 0
+  - name: Lane2 Foreground
+    uniqueID: 164229657
+    locked: 0
+  - name: Lane3 Background
+    uniqueID: 626220151
+    locked: 0
+  - name: Lane3 Foreground
+    uniqueID: 1376027421
+    locked: 0
