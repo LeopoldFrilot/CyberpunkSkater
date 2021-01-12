@@ -146,9 +146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vertSpeed: 10
-  horizSpeed: 7
+  horizSpeed: 4
   teleportDistance: 5
   invincibilityTime: 2
+  maxFlyTime: 5
   maxHeight: -0.4
   laneNum: 3
   minHeight: -3.7
@@ -158,6 +159,7 @@ MonoBehaviour:
   minHorizPos: -7.5
   AC: {fileID: 0}
   GM: {fileID: 0}
+  SB: {fileID: 0}
 --- !u!212 &662746937
 SpriteRenderer:
   m_ObjectHideFlags: 0

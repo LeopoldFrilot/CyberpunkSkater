@@ -86,7 +86,7 @@ MonoBehaviour:
   xMoveSpeed: -20
   perspectiveScale: 0.3
   obstacleOffset: 0.1
-  scoreChangeForTouch: 100
+  scoreChangeForTouch: 200
 --- !u!1001 &4229601798480847597
 PrefabInstance:
   m_ObjectHideFlags: 0

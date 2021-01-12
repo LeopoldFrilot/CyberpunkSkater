@@ -10,7 +10,8 @@ public class Obstacle : MonoBehaviour
     public float perspectiveScale = .3f;
     public float obstacleOffset = .1f;
     public float scoreChangeForTouch;
-   
+    public List<Sprite> possibleSprites;
+
     // Lane logic
     private float maxHeight;
     private float minHeight;
@@ -25,6 +26,7 @@ public class Obstacle : MonoBehaviour
         maxHeight = PC.maxHeight + obstacleOffset;
         minHeight = PC.minHeight - obstacleOffset;
         laneWidth = (maxHeight - minHeight) / (PC.laneNum - 1);
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = possibleSprites[Random.Range(0, possibleSprites.Count)];
         SetLane(Random.Range(1, 4));
         GetComponent<Collider2D>().offset += new Vector2(transform.GetChild(0).localPosition.x, transform.GetChild(0).localPosition.y);
     }

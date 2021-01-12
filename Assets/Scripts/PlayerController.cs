@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     //External Connections
     public Accelerator AC;
     public GameManager GM;
+    public Soundboard SB;
 
     private float _vertical, _horizontal, _teleport, _pause;
     private bool hasTeleported = false;
@@ -44,14 +45,15 @@ public class PlayerController : MonoBehaviour
         inputs.PCMap.Horizontal.canceled += context => _horizontal = 0f;
         inputs.PCMap.Teleport.performed += context => _teleport = context.ReadValue<float>();
         inputs.PCMap.Teleport.canceled += context => _teleport = 0f;
-        inputs.PCMap.Pause.performed += context => _pause = context.ReadValue<float>();
-        inputs.PCMap.Pause.canceled += context => _pause = 0f;
+        //inputs.PCMap.Pause.performed += context => _pause = context.ReadValue<float>();
+        //inputs.PCMap.Pause.canceled += context => _pause = 0f;
     }
     // Start is called before the first frame update
     void Start()
     {
         AC = FindObjectOfType<Accelerator>();
         GM = FindObjectOfType<GameManager>();
+        SB = FindObjectOfType<Soundboard>();
         laneWidth = (maxHeight - minHeight) / (laneNum - 1);
         transform.position = new Vector3(-7.4f, minHeight + laneWidth);
         curLane = 2;
@@ -73,9 +75,10 @@ public class PlayerController : MonoBehaviour
                 EndFlight();
             }
         }
-        float curHorizSpeed = horizSpeed * Mathf.Clamp(1 - AC.speed, 0, 1);
+        float curHorizSpeed = horizSpeed;
         float yStore = 0;
         float xStore = 0;
+
         if(_pause == 1 && !pausePressed)
         {
             pausePressed = true;
@@ -119,10 +122,17 @@ public class PlayerController : MonoBehaviour
             {
                 xStore += teleportDistance;
                 hasTeleported = true;
+                SB.PlayClip(SB.teleport, 1f);
+                animator.SetTrigger("Teleport");
             }
             else if (_teleport == 0)
             {
-                if (hasTeleported) xStore -= teleportDistance; // Probably won't keep this
+                if (hasTeleported)
+                {
+                    xStore -= teleportDistance; // Probably won't keep this
+                    SB.PlayClip(SB.teleport, 1f);
+                    animator.SetTrigger("Teleport");
+                }
                 hasTeleported = false;
             }
         }
@@ -135,24 +145,28 @@ public class PlayerController : MonoBehaviour
     }
     public float MoveUpLane()
     {
-        if (curLane == 1)
+        if (curLane == 1 || flightTime > 0)
         {
             return 0;
         }
         curLane--;
         UpdateScale();
         UpdateLayer(curLane);
+        animator.SetTrigger("Teleport");
+        SB.PlayClip(SB.teleport, .3f * curLane);
         return laneWidth;
     }
     public float MoveDownLane()
     {
-        if (curLane == laneNum)
+        if (curLane == laneNum || flightTime > 0)
         {
             return 0;
         }
         curLane++;
         UpdateScale();
         UpdateLayer(curLane);
+        animator.SetTrigger("Teleport");
+        SB.PlayClip(SB.teleport, .3f * curLane);
         return -laneWidth;
     }
     private void UpdateScale()
@@ -168,6 +182,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<InvincibilityFlash>().StartFlash(invincibilityTime);
             FindObjectOfType<LifeManager>().DecrimentLives();
             animator.SetTrigger("Damage");
+            SB.PlayClip(SB.crash, 1f);
             return true;
         }
         return false;
@@ -184,6 +199,7 @@ public class PlayerController : MonoBehaviour
         if(lane == curLane)
         {
             Destroy(fuel);
+            SB.PlayClip(SB.fuelPickup, .2f);
             return true;
         }
         return false;
@@ -192,14 +208,17 @@ public class PlayerController : MonoBehaviour
     {
         if (lane == curLane)
         {
+            SB.PlayClip(SB.starPickup, 1f);
             return true;
         }
         return false;
     }
     public void StartFlight()
     {
+        FindObjectOfType<ScoreTracker>().AddToScore(1000f);
         transform.GetChild(0).GetComponent<Collider2D>().enabled = false;
         flightTime = maxFlyTime;
+        SB.PlayClip(SB.takeFlight, 1f);
         animator.SetBool("Flying", true);
     }
     public void EndFlight()

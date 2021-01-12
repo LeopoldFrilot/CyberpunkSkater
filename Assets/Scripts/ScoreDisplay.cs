@@ -10,13 +10,11 @@ public class ScoreDisplay : MonoBehaviour
 
     public int thisRoundScore;
     public int maxHighScores;
-    public string pathEnd = "/HighScores.txt";
 
     private string path;
     private StreamWriter SW;
     private StreamReader SR;
     private FileStream stream;
-    private bool readSomething = false;
 
     public List<string[]> scoresList;
 
@@ -31,14 +29,13 @@ public class ScoreDisplay : MonoBehaviour
     
     private void UpdateFile()
     {
-        path = Application.dataPath + pathEnd;
-        
+        path = Path.Combine(Application.streamingAssetsPath, "HighScores.txt");
         scoresList = new List<string[]>();
         if(File.Exists(path))
         {
             stream = File.Open(path, FileMode.Open);
             SR = new StreamReader(stream);
-            readSomething = true;
+            
             string lineRead = SR.ReadLine();
             while (lineRead != null) // Reading
             {

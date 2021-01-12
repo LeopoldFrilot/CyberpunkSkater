@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224.4, y: 178}
+  m_AnchoredPosition: {x: -224.4, y: 196}
   m_SizeDelta: {x: 1300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &37914877
@@ -180,7 +180,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use the spacebar to activate your special move!
+  m_text: 'Use and hold the spacebar to activate a horizontal teleport!
+
+    Release
+    spacebar to teleport back.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75fb07675f7f364419529f2ffde1bd19, type: 2}
   m_sharedMaterial: {fileID: -8337108459575086008, guid: 75fb07675f7f364419529f2ffde1bd19, type: 2}
@@ -207,8 +210,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -291,7 +294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -373.3, y: 239.50005}
+  m_AnchoredPosition: {x: -373.3, y: 247}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &97578497
@@ -341,8 +344,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -652,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -372
+      value: -417
       objectReference: {fileID: 0}
     - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -869,7 +872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -534, y: 82}
+  m_AnchoredPosition: {x: -534, y: 95}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &485114429
@@ -1000,6 +1003,7 @@ RectTransform:
   - {fileID: 1586675785}
   - {fileID: 682752763}
   - {fileID: 1553323922}
+  - {fileID: 610435415}
   m_Father: {fileID: 1685339931}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1008,6 +1012,142 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &610435414
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 597231213}
+    m_Modifications:
+    - target: {fileID: 6406488663349246809, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 740744248}
+    - target: {fileID: 6406488663349246809, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -453
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488663349246811, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_Name
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488665211645230, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_fontSize
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488665211645230, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488665211645230, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406488665211645230, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+      propertyPath: m_text
+      value: 'Quit
+
+'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+--- !u!224 &610435415 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6406488663349246810, guid: e331082b5834c264792b5be88ce7341a, type: 3}
+  m_PrefabInstance: {fileID: 610435414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &682752762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1492,7 +1632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -373, y: -62}
+  m_AnchoredPosition: {x: -373, y: -24}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534796298
@@ -1515,7 +1655,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Collect the fuel to get an upgrade!\t"
+  m_text: Collect enough fuel to get a few seconds of invincibility!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75fb07675f7f364419529f2ffde1bd19, type: 2}
   m_sharedMaterial: {fileID: -8337108459575086008, guid: 75fb07675f7f364419529f2ffde1bd19, type: 2}
@@ -1751,7 +1891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Space Skater
+  m_text: Neurosurf
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa97e82318c564a42b317967d760f123, type: 2}
   m_sharedMaterial: {fileID: 4722516206300265922, guid: fa97e82318c564a42b317967d760f123, type: 2}
@@ -1778,7 +1918,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 175.6
+  m_fontSize: 227.9
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1862,7 +2002,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224, y: -4}
+  m_AnchoredPosition: {x: -224, y: 24}
   m_SizeDelta: {x: 1300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1604931164
@@ -2368,8 +2508,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: At the upgrade screen, use the movement controls to choose which upgrade
-    you want. The selection will lock in automatically after a few seconds.
+  m_text: 'Score values:
+
+    Passively gain 1 point per scond
+
+    Fuel: 30 points
+
+    Star:
+    200 points
+
+    Flight: 1000 points (Collect 15 fuel to fly!)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75fb07675f7f364419529f2ffde1bd19, type: 2}
   m_sharedMaterial: {fileID: -8337108459575086008, guid: 75fb07675f7f364419529f2ffde1bd19, type: 2}
